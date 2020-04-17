@@ -48,8 +48,7 @@ public class JavaScanner
 				idx = 0 ;
 				lex = "" ; 
 				c = file.charAt(idx) ; 
-				
-				if(c == ' ' || c == '\n'){
+				if(Character.toString(c).isBlank()){
 					file = file.substring(1, file.length()) ; 
 					continue ; 
 				}
@@ -259,7 +258,7 @@ public class JavaScanner
 				idx++ ; 
 				while(idx < file.length()){
 					c = file.charAt(idx) ; 
-					if(c == ' ' || c == '\n') return ; 
+					if(Character.toString(c).isBlank()) return ; 
 					lex += Character.toString(c) ; 
 					idx++ ; 
 				}
