@@ -42,6 +42,8 @@ public class JavaScanner
 			while (s.hasNextLine()) {
 				file += s.nextLine() + "\n"; 
 			}
+			System.out.println("---------- Scanner Running -----------") ; 
+
 			while(!file.isEmpty()){
 				check_opln = false ; 
 				state = null ; 
