@@ -88,7 +88,7 @@ public class JavaScanner
 					check_string_literal();
 				}
 				else if(c == '+' || c == '-'){
-					check_signeNumber_or_operator(c);
+					check_signedNumber_or_operator(c);
 				}
 				else if(c == '!' || c == '*' || c == '%' ||
 				c == '=' || c == '>' || c == '<'
@@ -197,7 +197,7 @@ public class JavaScanner
 	}
 
 
-	public static void check_signeNumber_or_operator(char op){
+	public static void check_signedNumber_or_operator(char op){
 		state = State.OPERATOR ; 
 		lex += Character.toString(c) ; 
 		idx++ ; 
