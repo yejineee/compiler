@@ -48,6 +48,7 @@ public class JavaScanner
 				idx = 0 ;
 				lex = "" ; 
 				c = file.charAt(idx) ; 
+				
 				if(c == ' ' || c == '\n'){
 					file = file.substring(1, file.length()) ; 
 					continue ; 
