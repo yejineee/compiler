@@ -48,7 +48,7 @@ public class JavaScanner
 	public static String lex = "" ; 
 	public static char c ;
 	public static char[] delim = {' ','\n','(', '{', '}', ')', ';', '+', '-'} ; 
-	public static LinkedList<Pair> lex_list = new LinkedList<>() ; 
+	public static LinkedList<Pair> lex_list = new LinkedList<Pair>() ; 
 
 	public static boolean ScanningCode(String filepath)
 	{
@@ -101,10 +101,10 @@ public class JavaScanner
 				else if(c == '\"'){
 					check_string_literal();
 				}
-				else if(c == '+' || c == '-'){
-					check_signedNumber_or_operator(c);
-				}
-				else if(c == '!' || c == '*' || c == '%' ||
+				// else if(c == '+' || c == '-'){
+				// 	check_signedNumber_or_operator(c);
+				// }
+				else if(c == '+' || c == '-' || c == '!' || c == '*' || c == '%' ||
 				c == '=' || c == '>' || c == '<'
 				|| c == '|' || c == '&'){
 					check_operator() ; 
@@ -197,6 +197,18 @@ public class JavaScanner
 			else if(c == '|'){
 				c = file.charAt(idx) ; 
 				if(c == '|' || c == '='){
+					lex += Character.toString(c) ; 
+				}
+			}
+			else if(c == '+'){
+				c = file.charAt(idx) ; 
+				if(c == '+' || c == '='){
+					lex += Character.toString(c) ; 
+				}
+			}
+			else if(c == '-'){
+				c = file.charAt(idx) ; 
+				if(c == '-' || c == '='){
 					lex += Character.toString(c) ; 
 				}
 			}
