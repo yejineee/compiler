@@ -39,6 +39,7 @@ public class JavaParser {
 
   public static boolean for_stmt(){
     //System.out.println("____for stmt____") ; 
+    line = "" ; 
     if(get_next_if_exist() && token == State.LP){
       if(for_init()){
         if(get_next_if_exist() && token == State.TERMINATOR){
@@ -210,31 +211,34 @@ public class JavaParser {
     if(get_next_if_exist()){
       if(token == State.LP){
         if(exp()){
-          if(get_next_if_exist() && token == State.RP){
-            return true ; 
+          if( get_next_if_exist() ){
+            if(token == State.RP){
+              if(op(lex_list.getFirst().lex())){
+                get_next_if_exist() ; 
+                if(exp()){
+                  return true ; 
+                }
+              }
+              return true ; 
+            }
           }
         }
       }
       else if(variable() || token == State.NUMBER_LITERAL){
-        if(get_next_if_exist()){
-          if(op()){
-            if(exp()){
-              return true ; 
-            }
-          }
-          else{
-            lex_list.addFirst(p) ;  
-            line = line.substring(0, line.length()-2) ; 
+        if(op(lex_list.getFirst().lex())){
+          get_next_if_exist() ; 
+          if(exp()){
             return true ; 
           }
         }
+        return true ; 
       }
     }
     return false ;
   }
 
 
-  public static boolean op(){
+  public static boolean op(String lex){
     if(lex.equals("+") || lex.equals("-") || lex.equals("*") || lex.equals("/"))
       return true ; 
     return false ; 
