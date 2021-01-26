@@ -26,10 +26,6 @@ Yejin Yang
 
 4. Enter the File path
 
-   \- example
-
-   ![스크린샷 2020-04-18 오전 1.40.45](/Users/yang-yejin/Desktop/compiler/lab1_scanner/testpath.png)
-
 5. Wait for the result
 
 
